@@ -1,4 +1,4 @@
-export default selectionFilter = ({ series, films }) => {
+const selectionFilter = ({ series, films }) => {
     return {
         series: [
             {
@@ -46,3 +46,5 @@ export default selectionFilter = ({ series, films }) => {
         ]
     };
 }
+
+export default selectionFilter;
