@@ -2,6 +2,7 @@ import React from 'react';
 
 import { useContent } from '../hooks';
 import selectionFilter from '../utils/selection-filter'; 
+import BrowseContainer from '../containers/browse';
 
 const Browse = () => {
     // We get series and films
@@ -9,10 +10,9 @@ const Browse = () => {
     const { films } = useContent('films');
     // we filter the data to slides
     const slides = selectionFilter({ series, films });
-    console.log(slides);
     //then we pass slides to the browse container
     return (
-        <p>Hello form browse</p>
+        <BrowseContainer slides={slides}/>
     )
 };
 
