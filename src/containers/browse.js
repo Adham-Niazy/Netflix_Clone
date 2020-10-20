@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import SelectProfileContainer from './profiles';
 import { FirebaseContext } from '../context/firebase';
 import { Header, Loading, Card } from '../components';
+import FooterContainer from '../containers/footer';
 import * as ROUTES from '../constants/routes';
 import LOGO from '../logo.svg';
 
@@ -90,15 +91,16 @@ const BrowseContainer = ({ slides }) => {
                                 </Card.Item>
                             ))}
                         </Card.Entities>
-                        {/* <Card.Feature category={category}>
-                            <Player>
+                        <Card.Feature category={category}>
+                            {/* <Player>
                                 <Player.Button />
                                 <Player.Video src="/videos/bunny.mp4" />
-                            </Player>
-                        </Card.Feature> */}
+                            </Player> */}
+                        </Card.Feature>
                     </Card>
                 ))}
             </Card.Group>
+            <FooterContainer />
         </>
     ) : ( 
         <SelectProfileContainer user={user} setProfile={setProfile} /> 
