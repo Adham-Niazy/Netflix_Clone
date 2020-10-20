@@ -177,6 +177,10 @@ export const FeatureClose = styled.button`
     filter: brightness(0) invert(1);
     width: 24px;
   }
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const Content = styled.div`

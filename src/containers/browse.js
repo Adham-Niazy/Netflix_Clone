@@ -2,13 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 
 import SelectProfileContainer from './profiles';
 import { FirebaseContext } from '../context/firebase';
-import { Header, Loading, Card } from '../components';
+import { Header, Loading, Card, Player } from '../components';
 import FooterContainer from '../containers/footer';
 import * as ROUTES from '../constants/routes';
 import LOGO from '../logo.svg';
 
 const BrowseContainer = ({ slides }) => {
-    const [category, setCategory] = useState('series');
+    const [category, setCategory] = useState('films');
     const [searchTerm, setSearchTerm] = useState('');
     const [profile, setProfile] = useState({});
     const [loading, setLoading] = useState(true);
@@ -36,14 +36,14 @@ const BrowseContainer = ({ slides }) => {
                     <Header.Group>
                         <Header.Logo to={ROUTES.HOME} src={LOGO} alt="Netflix" />
                         <Header.TextLink 
-                            active={category === 'series' ? 'true' : 'false'} 
-                            onClick={() => setCategory('series')}>
-                                Series
-                            </Header.TextLink>
-                        <Header.TextLink 
-                            active={category === 'films' ? 'true' : 'false'}
+                            active={category === 'films' ? 'true' : 'false'} 
                             onClick={() => setCategory('films')}>
                                 Films
+                            </Header.TextLink>
+                        <Header.TextLink 
+                            active={category === 'series' ? 'true' : 'false'}
+                            onClick={() => setCategory('series')}>
+                                Series
                             </Header.TextLink>
                     </Header.Group>
                     <Header.Group>
@@ -92,10 +92,10 @@ const BrowseContainer = ({ slides }) => {
                             ))}
                         </Card.Entities>
                         <Card.Feature category={category}>
-                            {/* <Player>
+                            <Player>
                                 <Player.Button />
                                 <Player.Video src="/videos/bunny.mp4" />
-                            </Player> */}
+                            </Player>
                         </Card.Feature>
                     </Card>
                 ))}
